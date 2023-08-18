@@ -1,12 +1,13 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
+
 import styles from './ImageGalleryItem.module.css';
 
 const ImageGalleryItem = ({ src, largeSrc, onClick }) => {
-  const [loaded, setLoaded] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const scrollLock = () => {
+  const handleScrollLock = () => {
     const documentWidth = document.documentElement.clientWidth;
     const windowWidth = window.innerWidth;
     const scrollBarWidth = windowWidth - documentWidth;
@@ -16,12 +17,14 @@ const ImageGalleryItem = ({ src, largeSrc, onClick }) => {
   };
 
   const handleClick = () => {
-    scrollLock();
+    handleScrollLock();
     onClick();
   };
+
   const handleLoad = () => {
-    setLoaded(false);
+    setLoading(false);
   };
+
   const handleError = () => {
     setError(true);
   };
@@ -32,11 +35,11 @@ const ImageGalleryItem = ({ src, largeSrc, onClick }) => {
         <li className={styles.placeholder}></li>
       ) : (
         <li
-          className={loaded ? `${styles.container}` : `${styles.placeholder}`}
+          className={loading ? `${styles.placeholder}` : `${styles.container}`}
         >
           <img
             className={styles.image}
-            style={loaded ? {} : { visibility: 'hidden' }}
+            style={loading ? { visibility: 'hidden' } : {}}
             src={src}
             data-src={largeSrc}
             alt=""
@@ -55,4 +58,5 @@ ImageGalleryItem.propTypes = {
   largeSrc: PropTypes.string,
   onClick: PropTypes.func,
 };
+
 export default ImageGalleryItem;
