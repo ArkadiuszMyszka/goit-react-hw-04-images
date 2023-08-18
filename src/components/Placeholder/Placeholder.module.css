@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.placeholder {
+  position: relative;
+  isolation: isolate;
+  width: 70%;
+  max-width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: url('/src/images/bad.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 75%;
+}
+.text {
+  padding-top: 15px;
+  padding-inline: 7px;
+  margin: 0;
+  text-align: center;
+  color: #9e0c0c;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  user-select: none;
+}
