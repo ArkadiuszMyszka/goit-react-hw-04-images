@@ -9,5 +9,6 @@ const DotsLoader = ({ loading }) => {
     </div>
   );
 };
+
 DotsLoader.propTypes = { loading: PropTypes.bool };
 export default DotsLoader;

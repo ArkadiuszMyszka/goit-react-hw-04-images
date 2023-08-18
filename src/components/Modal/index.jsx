@@ -30,6 +30,7 @@ const Modal = ({ largeImage, onClickExit }) => {
     return () => {
       document.removeEventListener('keydown', handleEscapeKey);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
